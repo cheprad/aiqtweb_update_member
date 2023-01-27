@@ -52,7 +52,7 @@
                                     <!--  -->
                                     <div class="mb-3 ">
 									    <label for="setting-input-2" class="form-label">โปรโมชั่นที่สมัคร</label>
-									    <select id="userrole" name="userrole">
+									    <select id="utype" name="utype">
                                             <option value="1M">1 เดือน</option>
                                             <option value="3M">3 เดือน</option>
                                             <option value="1Y">1 ปี</option>
