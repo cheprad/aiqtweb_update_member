@@ -1,0 +1,249 @@
+<html lang="en"><head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Ai Quant Tech Registration</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/main.css" rel="stylesheet" media="all">
+	
+	<script>
+		function validateForm()
+		{
+			var pass1 = document.getElementById("passwd1").value;
+			var pass2 = document.getElementById("passwd2").value;
+			
+			if (pass1 != pass2)
+			{
+				alert("Password NOT match Confirm password");
+				return false;
+			}
+			return true;
+		}
+	</script>
+	
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-02 p-t-100 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+			<img width="100%" src="images/logo_aiqt.jpg">
+
+            <div class="card card-4">
+                <div class="card-body">
+                    <h4 class="title">แบบฟอร์มลงทะเบียน</h4>
+                    <form method="POST" action="regmember.php" onsubmit="return validateForm();">
+					
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">ชื่อ <span style="color:red">* Required</span></label>
+                                    <input class="input--style-4" type="text" name="first_name" required="">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">นามสกุล <span style="color:red">* Required</span></label>
+                                    <input class="input--style-4" type="text" name="last_name" required="">
+                                </div>
+                            </div>
+                        </div>
+						
+						
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Email <span style="color:red">* Required</span></label>
+                                    <input class="input--style-4" type="email" name="email" required="">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">หมายเลขโทรศัพท์ <span style="color:red">* Required</span></label>
+                                    <input class="input--style-4" type="text" name="phone" required="">
+                                </div>
+                            </div>
+                        </div>
+						
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Password <span style="color:red">* Required</span></label>
+                                    <input class="input--style-4" type="password" name="passwd1" id="passwd1" required="">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">ยืนยัน password <span style="color:red">* Required</span></label>
+                                    <input class="input--style-4" type="password" name="passwd2" id="passwd2" required="">
+                                </div>
+                            </div>
+                        </div>
+
+						<div class="row row-space">
+							<div class="col-2">
+								<div class="input-group">
+									<label class="label">จังหวัด <span style="color:red">* Required</span></label>						
+									<select class="input--style-4" id="provinces" name="provinces" required="">
+										<option value="" disabled="" selected="">-- เลือกจังหวัด --</option>
+										<option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+										<option value="สมุทรปราการ">สมุทรปราการ</option>
+										<option value="นนทบุรี">นนทบุรี</option>
+										<option value="ปทุมธานี">ปทุมธานี</option>
+										<option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+										<option value="อ่างทอง">อ่างทอง</option>
+										<option value="ลพบุรี">ลพบุรี</option>
+										<option value="สิงห์บุรี">สิงห์บุรี</option>
+										<option value="ชัยนาท">ชัยนาท</option>
+										<option value="สระบุรี">สระบุรี</option>
+										<option value="ชลบุรี">ชลบุรี</option>
+										<option value="ระยอง">ระยอง</option>
+										<option value="จันทบุรี">จันทบุรี</option>
+										<option value="ตราด">ตราด</option>
+										<option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+										<option value="ปราจีนบุรี">ปราจีนบุรี</option>
+										<option value="นครนายก">นครนายก</option>
+										<option value="สระแก้ว">สระแก้ว</option>
+										<option value="นครราชสีมา">นครราชสีมา</option>
+										<option value="บุรีรัมย์">บุรีรัมย์</option>
+										<option value="สุรินทร์">สุรินทร์</option>
+										<option value="ศรีสะเกษ">ศรีสะเกษ</option>
+										<option value="อุบลราชธานี">อุบลราชธานี</option>
+										<option value="ยโสธร">ยโสธร</option>
+										<option value="ชัยภูมิ">ชัยภูมิ</option>
+										<option value="อำนาจเจริญ">อำนาจเจริญ</option>
+										<option value="หนองบัวลำภู">หนองบัวลำภู</option>
+										<option value="ขอนแก่น">ขอนแก่น</option>
+										<option value="อุดรธานี">อุดรธานี</option>
+										<option value="เลย">เลย</option>
+										<option value="หนองคาย">หนองคาย</option>
+										<option value="มหาสารคาม">มหาสารคาม</option>
+										<option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+										<option value="กาฬสินธุ์">กาฬสินธุ์</option>
+										<option value="สกลนคร">สกลนคร</option>
+										<option value="นครพนม">นครพนม</option>
+										<option value="มุกดาหาร">มุกดาหาร</option>
+										<option value="เชียงใหม่">เชียงใหม่</option>
+										<option value="ลำพูน">ลำพูน</option>
+										<option value="ลำปาง">ลำปาง</option>
+										<option value="อุตรดิตถ์">อุตรดิตถ์</option>
+										<option value="แพร่">แพร่</option>
+										<option value="น่าน">น่าน</option>
+										<option value="พะเยา">พะเยา</option>
+										<option value="เชียงราย">เชียงราย</option>
+										<option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+										<option value="นครสวรรค์">นครสวรรค์</option>
+										<option value="อุทัยธานี">อุทัยธานี</option>
+										<option value="กำแพงเพชร">กำแพงเพชร</option>
+										<option value="ตาก">ตาก</option>
+										<option value="สุโขทัย">สุโขทัย</option>
+										<option value="พิษณุโลก">พิษณุโลก</option>
+										<option value="พิจิตร">พิจิตร</option>
+										<option value="เพชรบูรณ์">เพชรบูรณ์</option>
+										<option value="ราชบุรี">ราชบุรี</option>
+										<option value="กาญจนบุรี">กาญจนบุรี</option>
+										<option value="สุพรรณบุรี">สุพรรณบุรี</option>
+										<option value="นครปฐม">นครปฐม</option>
+										<option value="สมุทรสาคร">สมุทรสาคร</option>
+										<option value="สมุทรสงคราม">สมุทรสงคราม</option>
+										<option value="เพชรบุรี">เพชรบุรี</option>
+										<option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+										<option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+										<option value="กระบี่">กระบี่</option>
+										<option value="พังงา">พังงา</option>
+										<option value="ภูเก็ต">ภูเก็ต</option>
+										<option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+										<option value="ระนอง">ระนอง</option>
+										<option value="ชุมพร">ชุมพร</option>
+										<option value="สงขลา">สงขลา</option>
+										<option value="สตูล">สตูล</option>
+										<option value="ตรัง">ตรัง</option>
+										<option value="พัทลุง">พัทลุง</option>
+										<option value="ปัตตานี">ปัตตานี</option>
+										<option value="ยะลา">ยะลา</option>
+										<option value="นราธิวาส">นราธิวาส</option>
+										<option value="บึงกาฬ">บึงกาฬ</option>
+									</select>						
+								</div>
+							</div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">อายุ <span style="color:red">* Required</span></label>
+                                    <input class="input--style-4" type="number" name="age" id="age" required="">
+                                </div>
+                            </div>							
+						</div>
+
+
+
+									
+                        <div class="row row-space">				
+							<div class="col-12">
+								<div class="input-group">
+                                    <label class="label">คุณคาดว่าจะลงทุนเริ่มต้นประมาณเท่าไหร่ <span style="color:red">* Required</span></label>
+									<select class="input--style-4" id="capital" name="capital" required="">
+										<option value="" disabled="" selected="">-- กรุณาเลือก --</option>
+										<option value="ต่ำกว่า 5 แสนบาท">ต่ำกว่า 5 แสนบาท</option>
+										<option value="5 แสน - 1 ล้านบาท">5 แสน - 1 ล้านบาท</option>
+										<option value="1 - 5 ล้านบาท">1- 5 ล้านบาท</option>
+										<option value="5 - 10 ล้านบาท">5 - 10 ล้านบาท</option>
+										<option value="มากกว่า 10 ล้านบาท">มากกว่า 10 ล้านบาท</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						
+						
+                        <div class="row row-space">
+                            <div class="col-6">
+                                <div class="input-group">
+                                    <label class="label">Promotion Code <span style="color:red">(optional)</span></label>
+                                    <input class="input--style-4" type="text" name="coupon_code" id="coupon_code">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hidden-component">
+                            
+
+                        </div>
+						
+                        <div class="p-t-15">
+							<button class="btn btn--radius-2 btn--blue" onclick="location.href = 'index.php';">ยกเลิก</button>
+							&nbsp;&nbsp;&nbsp;&nbsp;							
+                            <button class="btn btn--radius-2 btn--green" type="submit">ลงทะเบียน</button>
+                        </div>
+					</form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+
+
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) --></html>
