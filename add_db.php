@@ -4,8 +4,8 @@
 
     $errors = array();
     if(isset($_POST['add_shop'])){
-        $shopname = mysql_real_escape_string($_POST['addshop_shopname']);
-        $shopdetail = mysql_real_escape_string($_POST['addshop_shopdetail']);
+        // $shopname = mysql_real_escape_string($_POST['addshop_shopname']);
+        // $shopdetail = mysql_real_escape_string($_POST['addshop_shopdetail']);
         // for email
         $email = mysql_real_escape_string($_POST['email']);
         $user_check_query = "SELECT * FROM user_pro WHERE email = '$email'";
@@ -62,9 +62,13 @@
                 );
                 ";
             $query = mysql_query($newsql,$conn);
+            $_SESSION['success'] = "เพิ่มสมาชิกสมัครรายเดือนใหม่สำเร็จ";
+            header("location: adduserpro.php");
             // header("location: addshop_success.php?shopname=$shopname&shopdetail=$shopdetail");
         }else {
             echo "we have the error";
+            $_SESSION['errors'] = $errors;
+            header("location: adduserpro.php");
         }
     }
     // echo "test";

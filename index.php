@@ -12,17 +12,13 @@
 		$stype = $_REQUEST['stype'];
 		
 	}
-	$perpage = 25;
+	$perpage = 50;
 	$start = ($page - 1) * $perpage;
 	$sql2 = "SELECT * FROM user_pro";
 	$query2 = mysql_query($sql2,$conn);
 	$total_record = mysql_num_rows($query2);
 	$total_page = ceil($total_record / $perpage);
     include("fetch_user.php");
-
-	
-
-
 	?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -58,18 +54,15 @@
 					     <div class="page-utilities">
 						    <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
 							    <div class="col-auto">
-								    <form action="admin.php" medthod="post" class="table-search-form row gx-1 align-items-center">
+								    <form action="index.php" medthod="post" class="table-search-form row gx-1 align-items-center">
 					                    <div class="col-auto">
 					                        <input type="text" id="search-orders" name="search" class="form-control search-orders" placeholder="Search">
 										
 					                    </div>
 										<div class='col-auto'>
 											<select class="form-select" name="stype" id="search">
-												<option value="firstname">ค้นหาจาก</option>
-												<option value="firstname">ชื่อจริง</option>
-												<option value="lastname">ชื่อนามสกุล</option>
 												<option value="email">email</option>
-												<option value="tel">เบอร์โทรศัพท์</option>
+												<option value="uid_pro">รหัสผู้จ่ายเงิน</option>
 											</select>
 										</div>
 					                    <div class="col-auto">
@@ -134,7 +127,7 @@
                                                         echo "<td style=' color:black'>" . $value['rpro_time'] . "</td>";
 														echo "<td style=' color:black'>" . $value['etc'] . "</td>";
                                                         echo "<td style=' color:black'>" . $value['utype'] . "</td>";
-														echo "<td style=' color:black'><a class='btn-sm app-btn-secondary' href='admin_user_detail.php?userid=" .$value['userid']."#'>View</a></td>";
+														echo "<td style=' color:black'><a class='btn-sm app-btn-secondary' href='userdetail.php?userid=" .$value['id']."#'>View</a></td>";
 														echo"</tr>";
 													}
                                                     ?>
@@ -189,7 +182,7 @@
 							<ul class="pagination justify-content-center">
 								<?php 
 									for($i=1;$i<=$total_page;$i++){ 
-										echo '<li class="page-item"><a class="page-link" href="admin.php?page='.$i.'">'.$i.'</a></li>';
+										echo '<li class="page-item"><a class="page-link" href="index.php?page='.$i.'">'.$i.'</a></li>';
 									}
 								?>
 								</li>
