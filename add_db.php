@@ -8,7 +8,7 @@
         $shopdetail = mysql_real_escape_string($_POST['addshop_shopdetail']);
         // for email
         $email = mysql_real_escape_string($_POST['email']);
-        $user_check_query = "SELECT * FROM aiqt_user_pro.user_pro WHERE email = '$email'";
+        $user_check_query = "SELECT * FROM user_pro WHERE email = '$email'";
         $query = mysql_query($user_check_query,$conn);
         $result = mysql_fetch_assoc($query);
         if($result) {
@@ -22,7 +22,7 @@
         strlen($date);
         $k = explode("-",$date);
         $b = explode("0",$k[0]);
-        $user_check_query = "SELECT * FROM aiqt_user_pro.user_pro ORDER BY uid_pro DESC LIMIT 1";
+        $user_check_query = "SELECT * FROM user_pro ORDER BY uid_pro DESC LIMIT 1";
         $query = mysql_query($user_check_query,$conn);
         $result = mysql_fetch_assoc($query);
         $numResults = mysql_num_rows($query);
@@ -49,7 +49,7 @@
         // $userid =  $_SESSION['userid'] ;
         if (count($errors)==0){
             $sql = "INSERT INTO `aiqtdealer`.`shop` (`shopid`, `userid`, `shopname`, `shopdetail`) VALUES (NULL, '$userid', '$shopname', '$shopdetail');";
-            $newsql = "INSERT INTO `aiqt_user_pro`.`user_pro` (
+            $newsql = "INSERT INTO `user_pro` (
                 `id` ,
                 `email` ,
                 `uid_pro` ,
@@ -63,6 +63,8 @@
                 ";
             $query = mysql_query($newsql,$conn);
             // header("location: addshop_success.php?shopname=$shopname&shopdetail=$shopdetail");
+        }else {
+            echo "we have the error";
         }
     }
     // echo "test";

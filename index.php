@@ -1,24 +1,24 @@
 <?php 
-    // require("connect.php");
+    require("connect.php");
     // require("authen.php");
 	// checkadmin();
-	// if (isset($_GET['page'])){
-	// 	$page = $_GET['page'];
-	// }else{
-	// 	$page = 1 ;
-	// }
-	// if (isset($_REQUEST['search']) && isset($_GET['stype'])){
-	// 	$search = $_REQUEST['search'];
-	// 	$stype = $_REQUEST['stype'];
+	if (isset($_GET['page'])){
+		$page = $_GET['page'];
+	}else{
+		$page = 1 ;
+	}
+	if (isset($_REQUEST['search']) && isset($_GET['stype'])){
+		$search = $_REQUEST['search'];
+		$stype = $_REQUEST['stype'];
 		
-	// }
-	// $perpage = 25;
-	// $start = ($page - 1) * $perpage;
-	// $sql2 = "SELECT * FROM aiqtdealer.user";
-	// $query2 = mysql_query($sql2,$conn);
-	// $total_record = mysql_num_rows($query2);
-	// $total_page = ceil($total_record / $perpage);
-    // include("admin_db.php");
+	}
+	$perpage = 25;
+	$start = ($page - 1) * $perpage;
+	$sql2 = "SELECT * FROM user_pro";
+	$query2 = mysql_query($sql2,$conn);
+	$total_record = mysql_num_rows($query2);
+	$total_page = ceil($total_record / $perpage);
+    include("fetch_user.php");
 
 	
 
@@ -112,11 +112,11 @@
 										<thead>
 											<tr>
 												<th class="cell">No.</th>
-												<th class="cell">ชื่อ</th>
-												<th class="cell">นามสกุล</th>
-												<th class="cell">E-mail</th>
-												<th class="cell">เบอร์โทรศัพท์</th>
-                                                <th class="cell">role</th>
+												<th class="cell">email</th>
+												<th class="cell">รหัสผู้จ่ายเงิน</th>
+												<th class="cell">เวลาที่สมัคร VIP</th>
+												<th class="cell">หมายเหตุ</th>
+                                                <th class="cell">โปรโมชั่นที่สมัคร</th>
 												<th class="cell"></th>
 												<!-- <th class="cell"></th> -->
 											</tr>
@@ -124,19 +124,19 @@
 										<tbody>
 
 											<?php 
-												// $i = 0 ;
-												// foreach ($rows as $value) {
-												// 		$i = $i + 1;
-												// 		echo"<tr>";
-												// 		echo "<td class='cell'> ". $i . "</td>";
-												// 		echo "<td style=' color:black'>" . $value['firstname'] . "</td>";
-												// 		echo "<td style=' color:black'>" . $value['lastname'] . "</td>";
-                                                //         echo "<td style=' color:black'>" . $value['email'] . "</td>";
-												// 		echo "<td style=' color:black'>" . $value['telnum'] . "</td>";
-                                                //         echo "<td style=' color:black'>" . $value['userrole'] . "</td>";
-												// 		echo "<td style=' color:black'><a class='btn-sm app-btn-secondary' href='admin_user_detail.php?userid=" .$value['userid']."#'>View</a></td>";
-												// 		echo"</tr>";
-												// 	}
+												$i = 0 ;
+												foreach ($rows as $value) {
+														$i = $i + 1;
+														echo"<tr>";
+														echo "<td class='cell'> ". $i . "</td>";
+														echo "<td style=' color:black'>" . $value['email'] . "</td>";
+														echo "<td style=' color:black'>" . $value['uid_pro'] . "</td>";
+                                                        echo "<td style=' color:black'>" . $value['rpro_time'] . "</td>";
+														echo "<td style=' color:black'>" . $value['etc'] . "</td>";
+                                                        echo "<td style=' color:black'>" . $value['utype'] . "</td>";
+														echo "<td style=' color:black'><a class='btn-sm app-btn-secondary' href='admin_user_detail.php?userid=" .$value['userid']."#'>View</a></td>";
+														echo"</tr>";
+													}
                                                     ?>
 											<!-- <tr>
 												<td class="cell">#15344</td>
@@ -176,8 +176,8 @@
 												<td class="cell"><span class="badge bg-success">Paid</span></td>
 												<td class="cell">$678.26</td>
 												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
-											</tr> -->
-		
+											</tr>
+		 -->
 										</tbody>
 									</table>
 						        </div><!--//table-responsive-->
