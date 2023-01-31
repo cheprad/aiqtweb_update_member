@@ -18,6 +18,10 @@
 	// $total_record = mysql_num_rows($query2);
 	// $total_page = ceil($total_record / $perpage);
     // include("admin_db.php");
+    $sql = "SELECT *
+    FROM `user_pro`
+    WHERE `email` LIKE 'asd'
+    LIMIT 0 , 30";
     $query = mysql_query($sql,$conn);
     $result = mysql_fetch_assoc($query);
     print_r($result);
