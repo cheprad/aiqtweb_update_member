@@ -66,6 +66,10 @@
 	    <div class="app-content pt-3 p-md-3 p-lg-4">
 		    <div class="container-xl">			    
 			    <h1 class="app-page-title">ข้อมูลสมาชิกที่จ่ายเงิน</h1>
+				<?php 
+					include('success.php');
+					check_text_success();
+				?>
 			    <hr class="mb-4">
                 <div class="row g-4 settings-section">
 	                <div class="col-12 col-md-4">

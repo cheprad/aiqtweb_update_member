@@ -6,9 +6,14 @@
     if(isset($_POST['edit_user'])){
         $email = mysql_real_escape_string($_POST['email']);
         $uid_pro = mysql_real_escape_string($_POST['uid_pro']);
-        $etc= mysql_real_escape_string($_POST['etc']);
+        $etc = mysql_real_escape_string($_POST['etc']);
         // $telnum= mysql_real_escape_string($_POST['telnum']);
-        $utype= mysql_real_escape_string($_POST['utype']);
+        $utype = mysql_real_escape_string($_POST['utype']);
+	} else {
+		$email = $_SESSION['foo'];
+		$uid_pro = $_SESSION['foo'];
+		$etc = $_SESSION['foo'];
+		$utype = $_SESSION['foo'];
 	}
    
 ?>
@@ -66,7 +71,7 @@
 								    <div class="mb-3">
 									    <label for="setting-input-1" class="form-label">email</label>
 										<?php 
-											echo '<input name="email" type="email" class="form-control" id="setting-input-1" value="'.$email.'">';
+											echo '<input name="email" type="email" class="form-control" id="setting-input-1" value="'.$email.'" readonly>';
 										?>
 										
 									</div>

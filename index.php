@@ -63,6 +63,8 @@
 											<select class="form-select" name="stype" id="search">
 												<option value="email">email</option>
 												<option value="uid_pro">รหัสผู้จ่ายเงิน</option>
+												<option value="etc">หมายเหตุ</option>
+												<option value="utype">โปรโมชั่นที่สมัคร</option>
 											</select>
 										</div>
 					                    <div class="col-auto">
