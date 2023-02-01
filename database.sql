@@ -29,9 +29,3 @@ CREATE TABLE IF NOT EXISTS `user_pro` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
---
--- Dumping data for table `user_pro`
---
-
-INSERT INTO `user_pro` (`id`, `email`, `uid_pro`, `rpro_time`, `etc`, `utype`) VALUES
-(8, 'pradprad@gmail.com', 'AQT2301AA0001', '2023-01-12 16:00:35', 'บลาๆๆๆ', '1M');
