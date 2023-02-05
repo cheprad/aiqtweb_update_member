@@ -1,6 +1,6 @@
 <?php 
     function check_text_error(){
-        session_start();
+        // session_start();
         if(isset($_SESSION['errors'])){
             // print_r($_SESSION['errors']); 
             foreach ($_SESSION['errors'] as $error) {

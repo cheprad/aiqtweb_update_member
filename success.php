@@ -1,6 +1,6 @@
 <?php 
     function check_text_success(){
-        session_start();
+        // session_start();
         if(isset($_SESSION['success'])){
             // print_r($_SESSION['success']); 
             $text = $_SESSION['success'];

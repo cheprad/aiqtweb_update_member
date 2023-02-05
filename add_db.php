@@ -1,5 +1,4 @@
 <?php 
-    session_start();
     require("connect.php");
 
     $errors = array();
@@ -66,7 +65,7 @@
             header("location: adduserpro.php");
             // header("location: addshop_success.php?shopname=$shopname&shopdetail=$shopdetail");
         }else {
-            echo "we have the error";
+            // echo "we have the error";
             $_SESSION['errors'] = $errors;
             header("location: adduserpro.php");
         }
