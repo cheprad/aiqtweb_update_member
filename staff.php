@@ -138,7 +138,7 @@
 														echo "<td style=' color:black'>" . $value['s_regtime'] . "</td>";
 														echo "<td style=' color:black'>" . $value['s_etc'] . "</td>";
 														echo "<td style=' color:black'>" . $value['s_flag'] . "</td>";
-														echo "<td style=' color:black'><a class='btn-sm app-btn-secondary' href='userdetail.php?userid=" .$value['id']."#'>View</a></td>";
+														echo "<td style=' color:black'><a class='btn-sm app-btn-secondary' href='staff_detail.php?s_id=" .$value['s_id']."#'>View</a></td>";
 														echo"</tr>";
 													}
                                                     ?>
