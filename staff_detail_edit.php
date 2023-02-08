@@ -3,43 +3,26 @@
 	// require("authen.php");
 	// checkadmin();
 	
-	isset($_GET['s_id'])? $s_id = $_GET['s_id'] : $s_id = '';
-	if(!empty($s_id)){
-		$sql = "SELECT * FROM `staff` WHERE `s_id` = '$s_id'";
-		$result = mysql_query($sql,$conn);
-        session_start();
-        $_SESSION['s_id'] = $s_id;
-		if (mysql_num_rows($result)==1){
-			$fetch_result = mysql_fetch_assoc($result);
-			$s_id = $fetch_result["s_id"];
-			$email = $fetch_result["email"];
-			$s_fname = $fetch_result["s_fname"];
-			$s_lname = $fetch_result["s_lname"];
-			$s_telnum = $fetch_result["s_telnum"];
-			$s_regtime = $fetch_result["s_regtime"];
-            $s_flag = $fetch_result["s_flag"];
-            $s_etc = $fetch_result["s_etc"];
-		} else {
-			// header("location: staff.php");
-            print_r($_GET);
-            echo   $s_id;
-		}
-		// ดึง codegen เพื่อใช้งาน 
-		$todate = date("Y-m-d");
-
-        
-
-
-		// $sid = 6;
-	
-		// $queryCode = "SELECT * FROM aiqtdealer.gencode WHERE codedate = '$todate' AND shopid = '$sid' ";
-		// $result_queryCode = mysql_query($queryCode,$conn);
-		// while ($row = mysql_fetch_assoc($result_queryCode)) { 
-		// 	$data[] = $row; 
-		// } 
-
+    if(isset($_POST['edit_staff'])){
+        $s_id = mysql_real_escape_string($_POST['s_id']);
+        $email = mysql_real_escape_string($_POST['email']);
+        $s_fname = mysql_real_escape_string($_POST['s_fname']);
+        $s_lname = mysql_real_escape_string($_POST['s_lname']);
+        $s_telnum = mysql_real_escape_string($_POST['s_telnum']);
+        $s_regtime = mysql_real_escape_string($_POST['s_regtime']);
+        $s_flag = mysql_real_escape_string($_POST['s_flag']);
+        $s_etc = mysql_real_escape_string($_POST['s_etc']);
+        // $telnum= mysql_real_escape_string($_POST['telnum']);
+        print_r($_POST);
+	} else {
+		$email = $_SESSION['foo'];
+		$uid_pro = $_SESSION['foo'];
+		$etc = $_SESSION['foo'];
+		$utype = $_SESSION['foo'];
 	}
+   
 ?>
+
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
@@ -63,27 +46,22 @@
 </head> 
 
 <body class="app">   	
-    <?php 
-		// include("header.php"); 
-	?>
+
 
     <div class="app-wrapper">
 	    
 	    <div class="app-content pt-3 p-md-3 p-lg-4">
 		    <div class="container-xl">			    
-			    <h1 class="app-page-title">ข้อมูลสมาชิกที่จ่ายเงิน</h1>
-				<?php 
-					include('success.php');
-					check_text_success();
-				?>
+			    <h1 class="app-page-title">แก้ไขข้อมูลสมาชิกที่จ่ายเงิน</h1>
 			    <hr class="mb-4">
                 <div class="row g-4 settings-section">
 	                <div class="col-12 col-md-4">
 		                <h3 class="section-title">General</h3>
 		                <div class="section-intro">
-							ใช้จัดการข้อมูลสมาชิก แก้ไข ปรับสถานะของ user
+							ทำการแก้ไขข้อมูลร้านโดย กรอกข้อมูลที่ต้องการแก้ไขใหม่ แล้วกดปุ่ม แก้ไข
 						</div>
 						<br>
+
 	                </div>
 	                <div class="col-12 col-md-8">
 						
@@ -91,8 +69,14 @@
 						    
 						    <div class="app-card-body">
 								
-							    <form class="settings-form" action="staff_detail_edit.php" method="post">
+							    <form class="settings-form" action="userdetailedit_db.php" method="post">
 								
+                                    <div class="mb-3 ">
+                                        <label for="setting-input-2" class="form-label">รหัส staff</label>
+                                        <?php 
+                                            echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$s_id.'" >'
+                                        ?>
+                                    </div>
 								    <div class="mb-3">
 									    <label for="setting-input-1" class="form-label">email</label>
 										<?php 
@@ -101,49 +85,39 @@
 										
 									</div>
 									<div class="mb-3 ">
-									    <label for="setting-input-2" class="form-label">รหัส staff</label>
-									    <?php 
-											echo '<input name="s_id" type="text" class="form-control" id="setting-input-1" value="'.$s_id.'" readonly>'
-										?>
-									</div>
-									<div class="mb-3 ">
 									    <label for="setting-input-2" class="form-label">ชื่อ staff</label>
 									    <?php 
-											echo '<input name="s_fname" type="text" class="form-control" id="setting-input-1" value="'.$s_fname.'" readonly>'
+											echo '<input name="etc" type="text" class="form-control signin-email"   value="'.$s_fname.'" >'
 										?>
 									</div>
 									<div class="mb-3 ">
 									    <label for="setting-input-2" class="form-label">นามสกุล staff</label>
 									    <?php 
-											echo '<input name="s_lname" type="text" class="form-control" id="setting-input-1" value="'.$s_lname.'" readonly>'
+											echo '<input name="etc" type="text" class="form-control signin-email" "  value="'.$s_lname.'" >'
 										?>
 									</div>
 									<div class="mb-3 ">
 									    <label for="setting-input-2" class="form-label">เบอร์ติดต่อ</label>
 									    <?php 
-											echo '<input name="s_telnum" type="text" class="form-control" id="setting-input-1" value="'.$s_telnum.'" readonly>'
+											echo '<input name="s_telnum" type="text" class="form-control signin-email" "  value="'.$s_telnum.'" >'
 										?>
 									</div>
 									<div class="mb-3 ">
-									    <label for="setting-input-2" class="form-label">เวลาที่ลงทะเบียน</label>
+									    <label for="setting-input-2" class="form-label">โปรโมชั่นที่สมัคร</label>
 									    <?php 
-											echo '<input name="s_regtime" type="text" class="form-control" id="setting-input-1" value="'.$s_regtime.'" readonly>'
+											// echo '<input name="userrole" type="text" class="form-control" id="setting-input-1" value="'.$userrole.'" >';
+                                            echo '<select id="utype" name="utype">';
+                                            echo '<option value="'.$utype.'">'.$utype.'</option>';
+                                            echo '<option value="1M">1M</option>';
+                                            echo '<option value="3M">3M</option>';
+                                            echo '<option value="6M">6M</option>';
+                                            echo '<option value="1Y">1Y</option>';
+                                            echo '</select>';
 										?>
 									</div>
-									<div class="mb-3 ">
-									    <label for="setting-input-2" class="form-label">flag</label>
-									    <?php 
-											echo '<input name="s_flag" type="text" class="form-control" id="setting-input-1" value="'.$s_flag.'" readonly>'
-										?>
-									</div>
-									<div class="mb-3 ">
-									    <label for="setting-input-2" class="form-label">หมายเหตุ</label>
-									    <?php 
-											echo '<input name="s_etc" type="text" class="form-control signin-email" placeholder=""  value="'.$s_etc.'" readonly>'
-										?>
-									</div>
-									<button name="edit_staff" type="submit" class="btn app-btn-primary" >แก้ไข</button>
-									<a class="btn app-btn-primary" style="background: red;}"href="index.php" >กลับ</a>
+									
+									<button name="edit_user" type="submit" class="btn app-btn-primary" >แก้ไข</button>
+									<!-- <button name="add_shop" type="submit" class="btn app-btn-primary" >บันทึก</button> -->
 							    </form>
 						    </div><!--//app-card-body-->
 						    
