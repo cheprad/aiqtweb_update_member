@@ -14,11 +14,11 @@
 	}
 	$perpage = 50;
 	$start = ($page - 1) * $perpage;
-	$sql2 = "SELECT * FROM user_pro";
+	$sql2 = "SELECT * FROM staff";
 	$query2 = mysql_query($sql2,$conn);
 	$total_record = mysql_num_rows($query2);
 	$total_page = ceil($total_record / $perpage);
-    include("fetch_user.php");
+    include("staffdb.php");
 	?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -54,17 +54,20 @@
 					     <div class="page-utilities">
 						    <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
 							    <div class="col-auto">
-								    <form action="index.php" medthod="post" class="table-search-form row gx-1 align-items-center">
+								    <form action="staff.php" medthod="post" class="table-search-form row gx-1 align-items-center">
 					                    <div class="col-auto">
 					                        <input type="text" id="search-orders" name="search" class="form-control search-orders" placeholder="Search">
 										
 					                    </div>
 										<div class='col-auto'>
 											<select class="form-select" name="stype" id="search">
+												<option value="s_id">staff id</option>
 												<option value="email">email</option>
-												<option value="uid_pro">รหัสผู้จ่ายเงิน</option>
-												<option value="etc">หมายเหตุ</option>
-												<option value="utype">โปรโมชั่นที่สมัคร</option>
+												<option value="s_fname">ชื่อ</option>
+												<option value="s_lname">นามสกุล</option>
+												<option value="s_telnum">เบอร์ติดต่อ</option>
+												<option value="s_etc">หมายเหตุ</option>
+												<option value="s_flag">flag</option>
 											</select>
 										</div>
 					                    <div class="col-auto">
@@ -107,7 +110,7 @@
 										<thead>
 											<tr>
 												<th class="cell">No.</th>
-												<th class="cell">id staff</th>
+												<th class="cell">staff id</th>
 												<th class="cell">email</th>
 												<th class="cell">ชื่อ staff</th>
 												<th class="cell">นามสกุล staff</th>
@@ -127,11 +130,14 @@
 														$i = $i + 1;
 														echo"<tr>";
 														echo "<td class='cell'> ". $i . "</td>";
+														echo "<td style=' color:black'>" . $value['s_id'] . "</td>";
 														echo "<td style=' color:black'>" . $value['email'] . "</td>";
-														echo "<td style=' color:black'>" . $value['uid_pro'] . "</td>";
-                                                        echo "<td style=' color:black'>" . $value['rpro_time'] . "</td>";
-														echo "<td style=' color:black'>" . $value['etc'] . "</td>";
-                                                        echo "<td style=' color:black'>" . $value['utype'] . "</td>";
+                                                        echo "<td style=' color:black'>" . $value['s_fname'] . "</td>";
+														echo "<td style=' color:black'>" . $value['s_lname'] . "</td>";
+                                                        echo "<td style=' color:black'>" . $value['s_telnum'] . "</td>";
+														echo "<td style=' color:black'>" . $value['s_regtime'] . "</td>";
+														echo "<td style=' color:black'>" . $value['s_etc'] . "</td>";
+														echo "<td style=' color:black'>" . $value['s_flag'] . "</td>";
 														echo "<td style=' color:black'><a class='btn-sm app-btn-secondary' href='userdetail.php?userid=" .$value['id']."#'>View</a></td>";
 														echo"</tr>";
 													}
