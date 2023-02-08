@@ -3,7 +3,7 @@
     session_start();
 
     $errors = array();
-    print_r($_POST);
+    // print_r($_POST);
     if(isset($_POST['add_staff'])){
         $s_id = mysql_real_escape_string($_POST['s_id']);
         $user_check_query = "SELECT * FROM staff WHERE s_id = '$s_id'";

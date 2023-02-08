@@ -11,10 +11,14 @@
         $_SESSION['s_id'] = $s_id;
 		if (mysql_num_rows($result)==1){
 			$fetch_result = mysql_fetch_assoc($result);
-			$email = $fetch_result["email"];
 			$s_id = $fetch_result["s_id"];
-            $etc = $fetch_result["etc"];
-            $utype = $fetch_result["utype"];
+			$email = $fetch_result["email"];
+			$s_fname = $fetch_result["s_fname"];
+			$s_lname = $fetch_result["s_lname"];
+			$s_telnum = $fetch_result["s_telnum"];
+			$s_regtime = $fetch_result["s_regtime"];
+            $s_flag = $fetch_result["s_flag"];
+            $s_etc = $fetch_result["s_etc"];
 		} else {
 			// header("location: staff.php");
             print_r($_GET);
@@ -97,24 +101,47 @@
 										
 									</div>
 									<div class="mb-3 ">
-									    <label for="setting-input-2" class="form-label">รหัสผู้ใช้งานแบบจ่ายเงิน</label>
+									    <label for="setting-input-2" class="form-label">รหัส staff</label>
 									    <?php 
 											echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$s_id.'" readonly>'
 										?>
 									</div>
 									<div class="mb-3 ">
-									    <label for="setting-input-2" class="form-label">หมายเหตุ</label>
+									    <label for="setting-input-2" class="form-label">ชื่อ staff</label>
 									    <?php 
-											echo '<input name="etc" type="text" class="form-control signin-email" placeholder="Email address"  value="'.$etc.'" readonly>'
+											echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$s_fname.'" readonly>'
 										?>
 									</div>
 									<div class="mb-3 ">
-									    <label for="setting-input-2" class="form-label">โปรโมชั่นที่สมัคร</label>
+									    <label for="setting-input-2" class="form-label">นามสกุล staff</label>
 									    <?php 
-											echo '<input name="utype" type="text" class="form-control" id="setting-input-1" value="'.$utype.'" readonly>'
+											echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$s_lname.'" readonly>'
 										?>
 									</div>
-									
+									<div class="mb-3 ">
+									    <label for="setting-input-2" class="form-label">เบอร์ติดต่อ</label>
+									    <?php 
+											echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$s_telnum.'" readonly>'
+										?>
+									</div>
+									<div class="mb-3 ">
+									    <label for="setting-input-2" class="form-label">เวลาที่ลงทะเบียน</label>
+									    <?php 
+											echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$s_regtime.'" readonly>'
+										?>
+									</div>
+									<div class="mb-3 ">
+									    <label for="setting-input-2" class="form-label">flag</label>
+									    <?php 
+											echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$s_flag.'" readonly>'
+										?>
+									</div>
+									<div class="mb-3 ">
+									    <label for="setting-input-2" class="form-label">หมายเหตุ</label>
+									    <?php 
+											echo '<input name="etc" type="text" class="form-control signin-email" placeholder=""  value="'.$s_etc.'" readonly>'
+										?>
+									</div>
 									<button name="edit_user" type="submit" class="btn app-btn-primary" >แก้ไข</button>
 									<a class="btn app-btn-primary" style="background: red;}"href="index.php" >กลับ</a>
 							    </form>
