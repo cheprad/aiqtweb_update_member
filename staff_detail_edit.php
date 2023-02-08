@@ -13,7 +13,7 @@
         $s_flag = mysql_real_escape_string($_POST['s_flag']);
         $s_etc = mysql_real_escape_string($_POST['s_etc']);
         // $telnum= mysql_real_escape_string($_POST['telnum']);
-        print_r($_POST);
+        // print_r($_POST);
 	} else {
 		$email = $_SESSION['foo'];
 		$uid_pro = $_SESSION['foo'];
@@ -69,31 +69,31 @@
 						    
 						    <div class="app-card-body">
 								
-							    <form class="settings-form" action="userdetailedit_db.php" method="post">
+							    <form class="settings-form" action="staff_detail_editdb.php" method="post">
 								
                                     <div class="mb-3 ">
                                         <label for="setting-input-2" class="form-label">รหัส staff</label>
                                         <?php 
-                                            echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$s_id.'" >'
+                                            echo '<input name="s_id" type="text" class="form-control" id="setting-input-1" value="'.$s_id.'" readonly>'
                                         ?>
                                     </div>
 								    <div class="mb-3">
 									    <label for="setting-input-1" class="form-label">email</label>
 										<?php 
-											echo '<input name="email" type="email" class="form-control" id="setting-input-1" value="'.$email.'" readonly>';
+											echo '<input name="email" type="email" class="form-control" id="setting-input-1" value="'.$email.'" >';
 										?>
 										
 									</div>
 									<div class="mb-3 ">
 									    <label for="setting-input-2" class="form-label">ชื่อ staff</label>
 									    <?php 
-											echo '<input name="etc" type="text" class="form-control signin-email"   value="'.$s_fname.'" >'
+											echo '<input name="s_fname" type="text" class="form-control signin-email"   value="'.$s_fname.'" >'
 										?>
 									</div>
 									<div class="mb-3 ">
 									    <label for="setting-input-2" class="form-label">นามสกุล staff</label>
 									    <?php 
-											echo '<input name="etc" type="text" class="form-control signin-email" "  value="'.$s_lname.'" >'
+											echo '<input name="s_lname" type="text" class="form-control signin-email" "  value="'.$s_lname.'" >'
 										?>
 									</div>
 									<div class="mb-3 ">
@@ -103,20 +103,30 @@
 										?>
 									</div>
 									<div class="mb-3 ">
-									    <label for="setting-input-2" class="form-label">โปรโมชั่นที่สมัคร</label>
+									    <label for="setting-input-2" class="form-label">เวลาที่สมัคร</label>
+									    <?php 
+											echo '<input name="s_regtime" type="text" class="form-control signin-email" "  value="'.$s_regtime.'" readonly>'
+										?>
+									</div>
+									<div class="mb-3 ">
+										<label for="setting-input-2" class="form-label">flag</label>
 									    <?php 
 											// echo '<input name="userrole" type="text" class="form-control" id="setting-input-1" value="'.$userrole.'" >';
-                                            echo '<select id="utype" name="utype">';
-                                            echo '<option value="'.$utype.'">'.$utype.'</option>';
-                                            echo '<option value="1M">1M</option>';
-                                            echo '<option value="3M">3M</option>';
-                                            echo '<option value="6M">6M</option>';
-                                            echo '<option value="1Y">1Y</option>';
+                                            echo '<select id="s_flag" name="s_flag">';
+                                            echo '<option value="'.$s_flag.'">'.$s_flag.'</option>';
+                                            echo '<option value="A">A-Active</option>';
+                                            echo '<option value="IA">IA-Inactive</option>';
                                             echo '</select>';
+											?>
+									</div>
+									<div class="mb-3 ">
+										<label for="setting-input-2" class="form-label">หมายเหตุ</label>
+										<?php 
+											echo '<input name="s_etc" type="text" class="form-control signin-email" "  value="'.$s_etc.'" >'
 										?>
 									</div>
 									
-									<button name="edit_user" type="submit" class="btn app-btn-primary" >แก้ไข</button>
+									<button name="edit_staff" type="submit" class="btn app-btn-primary" >แก้ไข</button>
 									<!-- <button name="add_shop" type="submit" class="btn app-btn-primary" >บันทึก</button> -->
 							    </form>
 						    </div><!--//app-card-body-->
