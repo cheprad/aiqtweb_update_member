@@ -41,7 +41,7 @@
 		                <h3 class="section-title"></h3>
 		                <div class="section-intro">
 
-						ใส่ข้อมูล E-mail และข้อมูลร้านค้าแล้วกด บันทึกเพื่อเพิ่มสมาชิกที่สมัคร PRO</div>
+						ใส่ข้อมูล E-mail และข้อมูลผู้ใช้แล้วกด บันทึกเพื่อเพิ่มสมาชิกที่สมัคร PRO</div>
 	                </div>
 
 	                <div class="col-12 col-md-8">
@@ -57,10 +57,7 @@
   <circle cx="8" cy="4.5" r="1"/>
 </svg></span></label>
 									    <input  name="email" type="text" class="form-control" id="setting-input-1" required>
-										<?php 
-											include('errors.php');
-											check_text_error();
-										?>
+										
 									</div>
                                     <!--  -->
                                     <div class="mb-3 ">
@@ -68,15 +65,24 @@
 									    <select id="utype" name="utype">
                                             <option value="1M">1 เดือน</option>
                                             <option value="3M">3 เดือน</option>
+											<option value="6M">6 เดือน</option>
                                             <option value="1Y">1 ปี</option>
                                         </select>									
                                     </div>
                                     <!--  -->
 									<div class="mb-3 ">
+									    <label for="setting-input-2" class="form-label">รหัส staff</label>
+									    <input  name="s_id" type="text" maxlength="3" class="form-control" id="setting-input-1" required>
+									</div>
+								    
+									<div class="mb-3 ">
 									    <label for="setting-input-2" class="form-label">หมายเหตุ</label>
 									    <textarea name="etc" type="text" class="form-control" id="setting-input-2" ma ></textarea> 
 									</div>
-								    
+								    <?php 
+											include('errors.php');
+											check_text_error();
+										?>
 									<button name="add_shop" type="submit" class="btn app-btn-primary" >บันทึก</button>
 									<a class="btn app-btn-primary" style="background: red;}"href="index.php" >กลับ</a>
 							    </form>

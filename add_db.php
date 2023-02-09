@@ -1,6 +1,6 @@
 <?php 
     require("connect.php");
-
+    session_start();
     $errors = array();
     if(isset($_POST['add_shop'])){
         // $shopname = mysql_real_escape_string($_POST['addshop_shopname']);
@@ -15,6 +15,10 @@
                 array_push($errors,'Email already exists');
             }
         }
+        $s_id = mysql_real_escape_string($_POST['s_id']);
+        if(strlen($s_id) !== 3 ) {
+            array_push($errors,'staff id ต้องมี 3 ตัว');
+        }
         // end email
         // for uid_pro
         $date = date('Y-m-d');
@@ -27,19 +31,21 @@
         $numResults = mysql_num_rows($query);
         if ($numResults > 0) {
             $nums = str_split($result['uid_pro']);
-            $numf = "$nums[9]$nums[10]$nums[11]$nums[12]";
+            $numf = "$nums[12]$nums[13]$nums[14]$nums[15]";
             $numi = (int)"$numf";
             $sumn = $numi;
-            $alpha = "$nums[7]$nums[8]";
+            $alpha = "$nums[10]$nums[11]";
             if ($numi+1 === 10000) {
                 $alpha=++$alpha;
             }else{
                 $sumn = $numi + 1;
             };
             $numr = str_pad($sumn,4,"0",STR_PAD_LEFT);
-            $uid_pro = "AQT$b[1]$k[1]$alpha$numr";
+            $uid_pro = "$b[1]$k[1]$alpha$numr";
+            $uid_pro = "AQT$s_id$uid_pro";
          }else{
-            $uid_pro = "AQT$b[1]$k[1]AA0301";
+            $uid_pro = "$b[1]$k[1]AA0301";
+            $uid_pro = "AQT$s_id$uid_pro";
          };
         // end uid_pro
         $rpro_time = date('Y-m-d H:i:s');
@@ -50,6 +56,7 @@
             $sql = "INSERT INTO `aiqtdealer`.`shop` (`shopid`, `userid`, `shopname`, `shopdetail`) VALUES (NULL, '$userid', '$shopname', '$shopdetail');";
             $newsql = "INSERT INTO `user_pro` (
                 `id` ,
+                `s_id` ,
                 `email` ,
                 `uid_pro` ,
                 `rpro_time` ,
@@ -57,7 +64,7 @@
                 `utype`
                 )
                 VALUES (
-                NULL , '$email', '$uid_pro', '$rpro_time', ' $etc', '$utype'
+                NULL ,'$s_id', '$email', '$uid_pro', '$rpro_time', ' $etc', '$utype'
                 );
                 ";
             $query = mysql_query($newsql,$conn);

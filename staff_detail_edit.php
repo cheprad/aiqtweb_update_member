@@ -19,6 +19,8 @@
 		$uid_pro = $_SESSION['foo'];
 		$etc = $_SESSION['foo'];
 		$utype = $_SESSION['foo'];
+		 header("location: staff_detail.php?s_id=$s_id#");
+		
 	}
    
 ?>

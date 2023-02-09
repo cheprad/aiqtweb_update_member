@@ -8,12 +8,14 @@
         $uid_pro = mysql_real_escape_string($_POST['uid_pro']);
         $etc = mysql_real_escape_string($_POST['etc']);
         // $telnum= mysql_real_escape_string($_POST['telnum']);
+		$s_id = mysql_real_escape_string($_POST['s_id']);
         $utype = mysql_real_escape_string($_POST['utype']);
 	} else {
 		$email = $_SESSION['foo'];
 		$uid_pro = $_SESSION['foo'];
 		$etc = $_SESSION['foo'];
 		$utype = $_SESSION['foo'];
+		header("location: index.php");
 	}
    
 ?>
@@ -67,7 +69,12 @@
 						    <div class="app-card-body">
 								
 							    <form class="settings-form" action="userdetailedit_db.php" method="post">
-								
+									<div class="mb-3">
+									    <label for="setting-input-1" maxlength="3" class="form-label">รหัส staff ที่เพิ่ม</label>
+										<?php 
+											echo '<input name="s_id" type="test" class="form-control" id="setting-input-1" value="'.$s_id.'">';
+										?>
+									</div>
 								    <div class="mb-3">
 									    <label for="setting-input-1" class="form-label">email</label>
 										<?php 
@@ -76,15 +83,15 @@
 										
 									</div>
 									<div class="mb-3 ">
-									    <label for="setting-input-2" class="form-label">รหัสผู้ใช้งานแบบจ่ายเงิน</label>
+									    <label for="setting-input-2" class="form-label" >รหัสผู้ใช้งานแบบจ่ายเงิน</label>
 									    <?php 
-											echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$uid_pro.'" >'
+											echo '<input name="uid_pro" type="text" class="form-control" id="setting-input-1" value="'.$uid_pro.'"readonly >'
 										?>
 									</div>
 									<div class="mb-3 ">
 									    <label for="setting-input-2" class="form-label">หมายเหตุ</label>
 									    <?php 
-											echo '<input name="etc" type="text" class="form-control signin-email" placeholder="Email address"  value="'.$etc.'" >'
+											echo '<input name="etc" type="text" class="form-control signin-email" value="'.$etc.'" >'
 										?>
 									</div>
 									<div class="mb-3 ">

@@ -61,7 +61,7 @@
 		                <h3 class="section-title"></h3>
 		                <div class="section-intro">
 
-						ใส่ข้อมูล E-mail และข้อมูลร้านค้าแล้วกด บันทึกเพื่อแก้ไขข้อมูลสมาชิกที่สมัคร PRO</div>
+						ใส่ข้อมูล E-mail และข้อมูลผู้ใช้แล้วกด บันทึกเพื่อแก้ไขข้อมูลสมาชิกที่สมัคร PRO</div>
 	                </div>
 	                <div class="col-12 col-md-8">
 		                <div class="app-card app-card-settings shadow-sm p-4">

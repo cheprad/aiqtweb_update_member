@@ -12,6 +12,7 @@
 		if (mysql_num_rows($result)==1){
 			$fetch_result = mysql_fetch_assoc($result);
 			$email = $fetch_result["email"];
+			$s_id = $fetch_result["s_id"];
 			$uid_pro = $fetch_result["uid_pro"];
             $etc = $fetch_result["etc"];
             $utype = $fetch_result["utype"];
@@ -86,7 +87,13 @@
 						    <div class="app-card-body">
 								
 							    <form class="settings-form" action="userdetailedit.php" method="post">
-								
+									<div class="mb-3">
+									    <label for="setting-input-1" class="form-label">รหัส staff ที่เพิ่ม</label>
+										<?php 
+											echo '<input name="s_id" type="email" class="form-control" id="setting-input-1" value="'.$s_id.'" readonly>';
+										?>
+									</div>
+
 								    <div class="mb-3">
 									    <label for="setting-input-1" class="form-label">email</label>
 										<?php 
@@ -103,7 +110,7 @@
 									<div class="mb-3 ">
 									    <label for="setting-input-2" class="form-label">หมายเหตุ</label>
 									    <?php 
-											echo '<input name="etc" type="text" class="form-control signin-email" placeholder="Email address"  value="'.$etc.'" readonly>'
+											echo '<input name="etc" type="text" class="form-control signin-email"   value="'.$etc.'" readonly>'
 										?>
 									</div>
 									<div class="mb-3 ">
